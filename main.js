@@ -5,6 +5,7 @@ var cnt = document.getElementById("BodyContainer")
 function end_perform() {
   stage = "finish"
   cnt.innerHTML = "<h1>Finished</h1>" + `<p>${count} ks/min</p>` + `<p>${count / 60} ks/sec</p>` + `<p>Max ${count / 16 * 4} BPM in 16th notes.</p>` + `<p>Max ${count / 8 * 4} BPM in 8th notes.`
+  window.removeEventListener("keydown", keydown_event)
 }
 
 function start_perform() {
@@ -14,7 +15,7 @@ function start_perform() {
 function warmup() {
   stage = "warmup"
   setTimeout(start_perform, 10000)
-  setTimeout(end_perform, 80000)
+  setTimeout(end_perform, 70000)
 }
 
 function setup() {
@@ -22,7 +23,7 @@ function setup() {
   warmup()
 }
 
-window.addEventListener("keydown", e => {
+function keydown_event() {
   switch (stage) {
     case "perform":
       count++
@@ -33,4 +34,6 @@ window.addEventListener("keydown", e => {
     default:
       null
   }
-})
+}
+
+window.addEventListener("keydown", keydown_event)
