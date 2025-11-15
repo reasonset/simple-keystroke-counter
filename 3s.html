@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Key strokes in last 3sec</title>
+    <script src="last.js" defer></script>
+    <script>var interval = 3</script>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Stats</legend>
+      <div><input type="number" readonly id="Measure" /> ks in last <script>document.write(interval)</script>sec</div>
+      <div><input type="number" readonly id="Estimate" /> ks/min</div>
+    </fieldset>
+    <fieldset>
+      <legend>Free Area</legend>
+      <textarea style="width: 100%; font-size: 1rem;" rows="8"></textarea>
+    </fieldset>
+  </body>
+</html>
